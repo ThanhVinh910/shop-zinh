@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Trang chủ", href: "/" },
-  { name: "Sản phẩm", href: "/Sanpham" },
+  { name: "Sản phẩm", href: "/sanpham" },
   { name: "Giới thiệu", href: "/gioi-thieu" },
-  { name: "Báo giá", href: "/Lienhe" },
+  { name: "Báo giá", href: "/lienhe" },
 ];
 
 export default function Header() {
