@@ -8,7 +8,7 @@ const navItems = [
   { name: "Trang chủ", href: "/" },
   { name: "Sản phẩm", href: "/sanpham" },
   { name: "Giới thiệu", href: "/gioithieu" },
-  { name: "Báo giá", href: "/lienhe" },
+  { name: "Liên hệ", href: "/lienhe" },
 ];
 
 export default function Header() {
