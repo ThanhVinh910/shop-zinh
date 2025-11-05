@@ -32,7 +32,7 @@ const HeroSection = () => {
             Biến ý tưởng của bạn thành sản phẩm cao cấp để lại ấn tượng lâu dài.
           </p>
           <Link
-            href="/lien-he"
+            href="/lienhe"
             className="rounded-md bg-(--color-brand-primary) px-6 py-3 text-lg font-semibold text-white shadow-lg transition hover:opacity-90"
           >
             LIÊN HỆ

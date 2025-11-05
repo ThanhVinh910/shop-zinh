@@ -70,11 +70,11 @@ export default function GioiThieuPage() {
                 Sứ mệnh của chúng tôi
               </h2>
               <p>
-                Tại Him Paper, chúng tôi tin rằng bao bì không chỉ là thứ để
-                chứa đựng sản phẩm, mà còn là câu chuyện đầu tiên thương hiệu
-                của bạn kể cho khách hàng. Sứ mệnh của chúng tôi là cung cấp các
-                giải pháp in ấn bao bì sáng tạo, chất lượng cao, giúp nâng tầm
-                giá trị thương hiệu và tạo ấn tượng khó phai.
+                Tại INKZÍNH®, chúng tôi tin rằng bao bì không chỉ là thứ để chứa
+                đựng sản phẩm, mà còn là câu chuyện đầu tiên thương hiệu của bạn
+                kể cho khách hàng. Sứ mệnh của chúng tôi là cung cấp các giải
+                pháp in ấn bao bì sáng tạo, chất lượng cao, giúp nâng tầm giá
+                trị thương hiệu và tạo ấn tượng khó phai.
               </p>
               <p>
                 Chúng tôi liên tục cập nhật những xu hướng thiết kế và công nghệ
