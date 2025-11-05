@@ -193,10 +193,10 @@ export default function ContactPage() {
           {/* Left info */}
           <aside className="lg:col-span-1">
             <h2 className="mb-2 text-3xl font-bold tracking-wide text-(--color-brand-primary)">
-              INKZÍNH®
+              INK ZÍNH®
             </h2>
             <p className="mb-6 text-sm text-gray-600">
-              INKZÍNH® - Cung cấp mẫu in HOT nhất thị trường
+              INK ZÍNH® - Cung cấp mẫu in HOT nhất thị trường
             </p>
 
             <div className="prose mb-6 max-w-none text-sm text-gray-700">

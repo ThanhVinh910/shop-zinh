@@ -43,10 +43,10 @@ export default function GioiThieuPage() {
           <section className="flex flex-col items-center">
             {/* Tiêu đề và các dòng mô tả từ ảnh của bạn */}
             <h1 className="text-3xl font-bold uppercase text-gray-800 mb-4 text-center">
-              GIỚI THIỆU INKZÍNH®
+              GIỚI THIỆU INK ZÍNH®
             </h1>
             <p className="text-lg text-gray-700 text-center">
-              INKZÍNH® - Cung cấp mẫu in HOT nhất thị trường
+              INK ZÍNH® - Cung cấp mẫu in HOT nhất thị trường
             </p>
             <p className="text-lg text-gray-600 text-center mb-10">
               Chuyên thiết kế và in ấn các phiên bản chất lượng, hiện đại nhất
@@ -70,21 +70,21 @@ export default function GioiThieuPage() {
                 Sứ mệnh của chúng tôi
               </h2>
               <p>
-                Tại INKZÍNH®, chúng tôi tin rằng bao bì không chỉ là thứ để chứa
-                đựng sản phẩm, mà còn là câu chuyện đầu tiên thương hiệu của bạn
-                kể cho khách hàng. Sứ mệnh của chúng tôi là cung cấp các giải
-                pháp in ấn bao bì sáng tạo, chất lượng cao, giúp nâng tầm giá
-                trị thương hiệu và tạo ấn tượng khó phai.
+                Tại INK ZÍNH®, chúng tôi tin rằng bao bì không chỉ là thứ để
+                chứa đựng sản phẩm, mà còn là câu chuyện đầu tiên thương hiệu
+                của bạn kể cho khách hàng. Sứ mệnh của chúng tôi là cung cấp các
+                giải pháp in ấn bao bì sáng tạo, chất lượng cao, giúp nâng tầm
+                giá trị thương hiệu và tạo ấn tượng khó phai.
               </p>
               <p>
                 Chúng tôi liên tục cập nhật những xu hướng thiết kế và công nghệ
                 in ấn mới nhất (offset, digital, flexo...) để đảm bảo mọi sản
-                phẩm từ Him Paper đều sắc nét, bền đẹp và thân thiện với môi
+                phẩm từ INK ZÍNK® đều sắc nét, bền đẹp và thân thiện với môi
                 trường.
               </p>
 
               <h2 className="text-2xl font-semibold text-gray-800 mt-8">
-                Tại sao chọn INKZÍNH®?
+                Tại sao chọn INK ZÍNH®?
               </h2>
               <ul className="list-disc list-inside space-y-3">
                 <li>
