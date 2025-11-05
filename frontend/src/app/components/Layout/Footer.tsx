@@ -9,11 +9,21 @@ const advantages = [
   },
   {
     icon: <Printer className="h-8 w-8 text-white" />,
-    title: "Thiết bị hiện đại, dịch vụ in nhanh, đáng tin cậy",
+    title: (
+      <>
+        {" "}
+        Thiết bị hiện đại, dịch vụ in nhanh, <br /> đáng tin cậy{" "}
+      </>
+    ),
   },
   {
     icon: <Users className="h-8 w-8 text-white" />,
-    title: "Đội ngũ nhân viên chuyên nghiệp, luôn hỗ trợ khách hàng",
+    title: (
+      <>
+        {" "}
+        Đội ngũ nhân viên chuyên nghiệp, <br /> luôn hỗ trợ khách hàng{" "}
+      </>
+    ),
   },
 ];
 
@@ -60,22 +70,22 @@ export default function Footer() {
               </h4>
               <nav className="flex flex-col space-y-3">
                 <Link
-                  href="/Sanpham"
+                  href="/sanpham"
                   className="text-sm hover:text-white hover:underline"
                 >
                   Sản phẩm
                 </Link>
                 <Link
-                  href="/gioi-thieu"
+                  href="/gioithieu"
                   className="text-sm hover:text-white hover:underline"
                 >
                   Giới thiệu
                 </Link>
                 <Link
-                  href="/bao-gia"
+                  href="/lienhe"
                   className="text-sm hover:text-white hover:underline"
                 >
-                  Báo giá
+                  Liên hệ
                 </Link>
               </nav>
             </div>

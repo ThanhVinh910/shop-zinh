@@ -201,21 +201,24 @@ export default function ContactPage() {
 
             <div className="prose mb-6 max-w-none text-sm text-gray-700">
               <p className="font-semibold">Trụ sở chính</p>
-              <p>EE6 Bạch Mã, Phường Hòa Hưng, TPHCM</p>
+              <p>18/28/8 CMT8, KP4, Phường Trung Dũng, TP.Biên Hòa, Đồng Nai</p>
 
               <p className="mt-4 font-semibold">Thông tin liên lạc</p>
-              <p>Email: himpaperin@gmail.com</p>
-              <p>Số điện thoại: 0779.38.38.79 - 090.225.6424</p>
+              <p>Email: lethanhvinh.dev@gmail.com</p>
+              <p>Số điện thoại: 0834016499 - 0941056340</p>
             </div>
 
             {/* Map placeholder - replace embed src with your real embed */}
             <div className="mt-8">
               <iframe
-                title="Map - Him Paper"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.XXXXX"
-                className="h-40 w-full rounded border border-gray-200"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3917.2134856763187!2d106.819847!3d10.94724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDU2JzUwLjEiTiAxMDbCsDQ5JzExLjUiRQ!5e0!3m2!1svi!2s!4v1762359007792!5m2!1svi!2s"
+                width="600"
+                height="450"
+                className="w-full border-0"
+                allowFullScreen
                 loading="lazy"
-              />
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </aside>
 
