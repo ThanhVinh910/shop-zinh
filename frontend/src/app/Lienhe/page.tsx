@@ -182,19 +182,17 @@ export default function ContactPage() {
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-600 mb-6" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-[var(--color-brand-primary)]">
+          <Link href="/" className="hover:text-orange-500">
             Trang chủ
           </Link>
           <span className="mx-2">/</span>
-          <span className="font-medium text-[var(--color-brand-primary)]">
-            Liên hệ
-          </span>
+          <span className="font-medium text-orange-500">Liên hệ</span>
         </nav>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-start">
           {/* Left info */}
           <aside className="lg:col-span-1">
-            <h2 className="mb-2 text-3xl font-bold tracking-wide text-[var(--color-brand-primary)]">
+            <h2 className="mb-2 text-3xl font-bold tracking-wide text-(--color-brand-primary)">
               HiM PAPER®
             </h2>
             <p className="mb-6 text-sm text-gray-600">
@@ -379,7 +377,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="inline-flex items-center gap-2 rounded bg-[var(--color-brand-primary)] px-5 py-2 text-sm font-semibold text-white disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded bg-(--color-brand-primary) px-5 py-2 text-sm font-semibold text-white disabled:opacity-60"
                     aria-busy={loading}
                   >
                     {loading ? (
@@ -427,7 +425,7 @@ export default function ContactPage() {
                         localStorage.removeItem(STORAGE_KEY);
                       } catch {}
                     }}
-                    className="inline-flex items-center gap-2 rounded bg-[var(--color-brand-primary)] px-5 py-2 text-sm font-semibold text-white disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded bg-(--color-brand-primary) px-5 py-2 text-sm font-semibold text-white disabled:opacity-60"
                   >
                     Xóa
                   </button>

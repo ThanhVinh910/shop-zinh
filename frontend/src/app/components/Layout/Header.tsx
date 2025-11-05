@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { name: "Trang chủ", href: "/" },
   { name: "Sản phẩm", href: "/sanpham" },
-  { name: "Giới thiệu", href: "/gioi-thieu" },
+  { name: "Giới thiệu", href: "/gioithieu" },
   { name: "Báo giá", href: "/lienhe" },
 ];
 
