@@ -1,6 +1,3 @@
 [build]
-  command = "bun install && bun run build"
-  publish = ".next"
-
-[build.environment]
-  BUN_VERSION = "1.1.27"
+  command = "bun run build"   # sẽ chạy: next build && next export
+  publish = "out"

@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bun run next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
+  "dev": "bun run next dev",
+  "build": "next build && next export",
+  "start": "bunx serve@latest out",
+  "lint": "eslint"
+},
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.14.5",
     "lucide-react": "^0.552.0",
