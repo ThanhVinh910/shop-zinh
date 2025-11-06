@@ -116,9 +116,7 @@ export default function Footer() {
           <div className="container mx-auto max-w-7xl px-4 py-4">
             <p className="text-center text-xs text-gray-300">
               © Bản quyền thuộc về INK ZÍNH®. Thiết kế bởi{" "}
-              <span className="text-white font-semibold">
-                (Lê Thị Minh Thu)
-              </span>
+              <span className="text-white font-semibold">(MT)</span>
             </p>
           </div>
         </div>
