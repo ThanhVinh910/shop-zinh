@@ -17,25 +17,28 @@ const categories = [
   {
     title: "TEM NHÃN",
     href: "/danh-muc/tem-nhan",
-    imageUrl: "https://placehold.co/400x300/e2e8f0/333?text=Tem+Nhãn",
+    imageUrl:
+      "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
     alt: "Hình ảnh danh mục Tem Nhãn",
   },
   {
     title: "HỘP GIẤY",
     href: "/danh-muc/hop-giay",
-    imageUrl: "https://placehold.co/400x300/e2e8f0/333?text=Hộp+Giấy",
+    imageUrl:
+      "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
     alt: "Hình ảnh danh mục Hộp Giấy",
   },
   {
     title: "CATALOGUE",
     href: "/danh-muc/catalogue",
-    imageUrl: "https://placehold.co/400x300/e2e8f0/333?text=Catalogue",
+    imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
     alt: "Hình ảnh danh mục Catalogue",
   },
   {
     title: "BROCHURE/TỜ RƠI",
     href: "/danh-muc/brochure",
-    imageUrl: "https://placehold.co/400x300/e2e8f0/333?text=Brochure",
+    imageUrl:
+      "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
     alt: "Hình ảnh danh mục Brochure/Tờ Rơi",
   },
 ];
