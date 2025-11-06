@@ -8,7 +8,7 @@ import Link from "next/link";
 const allCategories = [
   {
     title: "TEM NHÃN",
-    href: "/danh-muc/tem-nhan",
+    href: "/sanpham/temnhan",
     imageUrl:
       "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
     alt: "Hình ảnh danh mục Tem Nhãn",
