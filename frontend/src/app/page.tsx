@@ -9,9 +9,8 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ProductList />
-      <ProcessSection /> {/* 2. Thêm vào đây */}
-      <About /> {/* 3. Thêm vào đây */}
-      {/* Các section khác ... */}
+      <ProcessSection />
+      <About />
     </main>
   );
 }
