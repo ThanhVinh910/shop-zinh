@@ -18,11 +18,11 @@ export default function Header() {
 
   return (
     // 3. Thêm 'relative' để menu con định vị đúng
-    <header className="sticky top-0 z-50 w-full bg-white shadow-md relative">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-md">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="text-2xl font-bold text-gray-800">
           <Image
-            src="/LOGO.jpg"
+            src="/logo.png"
             alt="INK ZÍNH®"
             width={100}
             height={99}
