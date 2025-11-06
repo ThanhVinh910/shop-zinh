@@ -6,9 +6,9 @@ import { useState } from "react"; // <-- 1. Import useState
 import Image from "next/image";
 const navItems = [
   { name: "Trang chủ", href: "/" },
-  { name: "Sản phẩm", href: "/sanpham" },
+  { name: "Sản phẩm", href: "/sanpham-test" },
   { name: "Giới thiệu", href: "/gioithieu" },
-  { name: "Liên hệ", href: "/lienhe" },
+  { name: "Liên hệ", href: "/lienhe-test" },
 ];
 
 export default function Header() {
