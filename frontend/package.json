@@ -3,13 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "dev": "bun run next dev",
-  "build": "next build",
-  "start": "bunx serve@latest out",
-  "lint": "eslint"
-},
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^5.14.5",
     "lucide-react": "^0.552.0",
     "next": "16.0.1",
     "nodemailer": "^7.0.10",
