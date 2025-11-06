@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react"; // <-- 1. Import useState
-
+import Image from "next/image";
 const navItems = [
   { name: "Trang chủ", href: "/" },
   { name: "Sản phẩm", href: "/sanpham" },
@@ -21,7 +21,13 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full bg-white shadow-md relative">
       <div className="container mx-auto flex h-20 max-w-7xl items-center justify-between px-4">
         <Link href="/" className="text-2xl font-bold text-gray-800">
-          INK ZÍNH®
+          <Image
+            src="/LOGO.jpg"
+            alt="INK ZÍNH®"
+            width={100}
+            height={99}
+            className="mx-auto mb-4"
+          />
         </Link>
 
         {/* --- NAV CHO DESKTOP (PC) --- */}
