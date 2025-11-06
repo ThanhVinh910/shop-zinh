@@ -16,27 +16,27 @@ import Link from "next/link";
 const categories = [
   {
     title: "TEM NHÃN",
-    href: "/danh-muc/tem-nhan",
+    href: "/sanpham/1",
     imageUrl:
       "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
     alt: "Hình ảnh danh mục Tem Nhãn",
   },
   {
     title: "HỘP GIẤY",
-    href: "/danh-muc/hop-giay",
+    href: "/sanpham/2",
     imageUrl:
       "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
     alt: "Hình ảnh danh mục Hộp Giấy",
   },
   {
     title: "CATALOGUE",
-    href: "/danh-muc/catalogue",
+    href: "/sanpham/3",
     imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
     alt: "Hình ảnh danh mục Catalogue",
   },
   {
     title: "BROCHURE/TỜ RƠI",
-    href: "/danh-muc/brochure",
+    href: "/sanpham/4",
     imageUrl:
       "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
     alt: "Hình ảnh danh mục Brochure/Tờ Rơi",
@@ -63,7 +63,7 @@ const ProductCategories = () => {
         {/* Lưới danh mục sản phẩm */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {categories.map((category) => (
-            <a
+            <Link
               key={category.title}
               href={category.href}
               className="group relative block overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl"
@@ -98,7 +98,7 @@ const ProductCategories = () => {
                 </h3>
                 <ArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

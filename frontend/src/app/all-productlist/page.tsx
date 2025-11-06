@@ -7,82 +7,94 @@ import Link from "next/link";
 // Dữ liệu cho TẤT CẢ các danh mục
 const allCategories = [
   {
+    id: 1,
     title: "TEM NHÃN",
-    href: "/sanpham/temnhan",
+    href: "/sanpham/1",
     imageUrl:
       "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
     alt: "Hình ảnh danh mục Tem Nhãn",
   },
   {
+    id: 2,
     title: "HỘP GIẤY",
-    href: "/danh-muc/hop-giay",
+    href: "/sanpham/2",
     imageUrl:
       "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
     alt: "Hình ảnh danh mục Hộp Giấy",
   },
   {
+    id: 3,
     title: "CATALOGUE",
-    href: "/danh-muc/catalogue",
+    href: "/sanpham/3",
     imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
     alt: "Hình ảnh danh mục Catalogue",
   },
   {
+    id: 4,
     title: "BROCHURE/TỜ RƠI",
-    href: "/danh-muc/brochure",
+    href: "/sanpham/4",
     imageUrl:
       "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
     alt: "Hình ảnh danh mục Brochure/Tờ Rơi",
   },
   {
+    id: 5,
     title: "THIỆP CƯỚI",
-    href: "/danh-muc/thiep-cuoi",
+    href: "/sanpham/5",
     imageUrl:
       "https://himpaper.vn/data/category/THI%E1%BB%86P%20C%C6%AF%E1%BB%9AI/z5308691804078_bc5affe8ec1f227ae538e4f6bebe09fd.jpg",
     alt: "Hình ảnh danh mục Thiệp Cưới",
   },
   {
+    id: 6,
     title: "NAMECARD",
-    href: "/danh-muc/namecard",
+    href: "/sanpham/6",
     imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
     alt: "Hình ảnh danh mục Namecard",
   },
   {
+    id: 7,
     title: "VOUCHER",
-    href: "/danh-muc/voucher",
+    href: "/sanpham/7",
     imageUrl: "https://himpaper.vn/data/category/VOUCHER/voucher.jpg",
     alt: "Hình ảnh danh mục Voucher",
   },
   {
+    id: 8,
     title: "BAO LÌ XÌ",
-    href: "/danh-muc/bao-li-xi",
+    href: "/sanpham/8",
     imageUrl:
-      "https://himpaper.vn/data/category/BAO%20L%C3%8C%20X%C3%8C/gggyju-01.jpg.png",
+      "https://himpaper.vn/data/category/BAO%20L%C3%8A%20X%C3%8A/gggyju-01.jpg.png",
     alt: "Hình ảnh danh mục Bao Lì Xì",
   },
   {
+    id: 9,
     title: "LỊCH ",
-    href: "/danh-muc/lich",
+    href: "/sanpham/9",
     imageUrl:
       "https://himpaper.vn/data/category/L%E1%BB%8ACH/z5768411133518_2579b804cff0c36e86f931c2b53cf14f.jpg",
     alt: "Hình ảnh danh mục Lịch",
   },
   {
+    id: 10,
     title: "SỔ TAY",
-    href: "/danh-muc/so-tay",
+    href: "/sanpham/10",
     imageUrl:
       "https://himpaper.vn/data/category/S%E1%BB%94%20TAY/notebook_mockup_05-01.jpg.png",
     alt: "Hình ảnh danh mục Sổ Tay",
   },
   {
+    id: 11,
     title: "MENU",
-    href: "/danh-muc/menu",
+    href: "/sanpham/11",
     imageUrl:
       "https://himpaper.vn/data/category/MENU/z5308594956544_8e60f3f33b198b82e94792e1e5a17022.jpg",
     alt: "Hình ảnh danh mục Menu",
   },
   {
+    id: 12,
     title: "TAG - THẺ TREO",
-    href: "/danh-muc/tag-the-treo",
+    href: "/sanpham/12",
     imageUrl:
       "https://himpaper.vn/data/category/TAG-TH%E1%BA%BA%20TREO/z5308604775186_2244df5425b9b86e51150223e86f1ad8-01.jpg.png",
     alt: "Hình ảnh danh mục TAG - THẺ TREO",
@@ -119,7 +131,7 @@ const AllCategoriesPage = () => {
               className="group flex flex-col items-center text-center"
             >
               {/* Hình ảnh - ĐÃ SỬA */}
-              <div className="relative mb-4 w-full overflow-hidden rounded-lg bg-gray-100 shadow-sm transition-all duration-300 group-hover:shadow-md aspect-[4/3]">
+              <div className="relative mb-4 w-full overflow-hidden rounded-lg bg-gray-100 shadow-sm transition-all duration-300 group-hover:shadow-md aspect-4/3">
                 <Image
                   src={category.imageUrl}
                   alt={category.alt}

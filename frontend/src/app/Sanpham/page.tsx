@@ -4,79 +4,86 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-// Dữ liệu sản phẩm mẫu
 const mockProducts = [
   {
     id: 1,
     name: "In Lịch Tết 2025",
     category: "Lịch",
-    imageUrl: "/products/lich-tet-2025.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
   },
   {
     id: 2,
     name: "In Namecard Giá Rẻ",
     category: "Namecard",
-    imageUrl: "/products/namecard-giare.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
   },
   {
     id: 3,
     name: "In Nhanh Namecard",
     category: "Namecard",
-    imageUrl: "/products/namecard-nhanh.jpg",
+    imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
   },
   {
     id: 4,
     name: "In Namecard Lấy Liền",
     category: "Namecard",
-    imageUrl: "/products/namecard-laylien.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
   },
   {
     id: 5,
     name: "In Nhanh Hộp Giấy",
     category: "Hộp Giấy",
-    imageUrl: "/products/hop-giay-nhanh.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/THI%E1%BB%86P%20C%C6%AF%E1%BB%9AI/z5308691804078_bc5affe8ec1f227ae538e4f6bebe09fd.jpg",
   },
   {
     id: 6,
     name: "In Hộp Mỹ Phẩm",
     category: "Hộp Giấy",
-    imageUrl: "/products/hop-my-pham.jpg",
+    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
   },
   {
     id: 7,
     name: "In Hộp Giá Rẻ",
     category: "Hộp Giấy",
-    imageUrl: "/products/hop-giay-giare.jpg",
+    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
   },
   {
     id: 8,
     name: "In Danh Thiếp",
     category: "Namecard",
-    imageUrl: "/products/danh-thiep.jpg",
+    imageUrl: "https://himpaper.vn/data/category/VOUCHER/voucher.jpg",
   },
   {
     id: 9,
     name: "In Hộp Giấy Theo Yêu Cầu",
     category: "Hộp Giấy",
-    imageUrl: "/products/hop-giay-yeucau.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/L%E1%BB%8ACH/z5768411133518_2579b804cff0c36e86f931c2b53cf14f.jpg",
   },
   {
     id: 10,
     name: "In Menu Giá Rẻ",
     category: "Menu",
-    imageUrl: "/products/menu-giare.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/S%E1%BB%94%20TAY/notebook_mockup_05-01.jpg.png",
   },
   {
     id: 11,
     name: "In Giấy Tiêu Đề",
     category: "Ấn Phẩm Văn Phòng",
-    imageUrl: "/products/giay-tieude.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/MENU/z5308594956544_8e60f3f33b198b82e94792e1e5a17022.jpg",
   },
   {
     id: 12,
     name: "In Nhãn Nhựa",
     category: "Tem Nhãn",
-    imageUrl: "/products/nhan-nhua.jpg",
+    imageUrl:
+      "https://himpaper.vn/data/category/TAG-TH%E1%BA%BA%20TREO/z5308604775186_2244df5425b9b86e51150223e86f1ad8-01.jpg.png",
   },
 ];
 
@@ -99,7 +106,7 @@ const productCategories = [
   "Túi Giấy",
 ];
 
-export default function SanPhamPage() {
+export default function SanphamPage() {
   const [activeCategory, setActiveCategory] = useState<string>("Tất cả");
 
   const filtered = mockProducts.filter((p) =>
@@ -109,13 +116,13 @@ export default function SanPhamPage() {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* 🔹 Breadcrumbs (Thanh chỉ đường) */}
+        {/* Breadcrumb */}
         <nav className="text-sm text-gray-600 mb-6">
           <Link href="/" className="hover:text-orange-500">
             Trang chủ
           </Link>
           <span className="mx-2">/</span>
-          <Link href="/Sanpham" className="font-medium text-orange-500">
+          <Link href="/sanpham" className="font-medium text-orange-500">
             Sản phẩm
           </Link>
         </nav>
@@ -162,11 +169,10 @@ export default function SanPhamPage() {
                 {filtered.map((product) => (
                   <Link
                     key={product.id}
-                    href={`/Sanpham/${product.id}`} // giả sử có route chi tiết sản phẩm
+                    href={`/sanpham/${product.id}`} // 🔑 chữ thường, khớp với route chi tiết
                     className="group"
                   >
                     <div className="overflow-hidden rounded-lg bg-gray-200">
-                      {/* Sử dụng aspect-square nếu có plugin aspect-ratio */}
                       <div className="aspect-square w-full">
                         <Image
                           src={product.imageUrl}

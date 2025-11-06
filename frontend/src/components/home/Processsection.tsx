@@ -1,6 +1,8 @@
 // src/app/components/home/Processsection.tsx
 "use client";
 
+import Image from "next/image";
+
 // Dữ liệu cho các bước
 const processSteps = [
   { text: "Đặt hàng online", icon: "🛒" },
@@ -14,12 +16,11 @@ const ProcessSection = () => {
   return (
     <section className="w-full bg-(--color-brand-light) py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
-        {/* Tiêu đề Section */}
+        Tiêu đề Section
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-800">QUY TRÌNH IN ẤN</h2>
         </div>
-
-        {/* Lưới 2 Cột */}
+        Lưới 2 Cột
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* Cột 1: Các bước */}
           <div className="flex flex-col space-y-4">
@@ -54,7 +55,13 @@ const ProcessSection = () => {
           {/* Cột 2: Ảnh minh họa */}
           <div className="flex h-full min-h-[400px] w-full items-center justify-center rounded-lg bg-gray-200">
             {/* Bạn có thể thay bằng component <Image> sau này */}
-            <span className="text-gray-500">[Ảnh minh họa quy trình]</span>
+            <Image
+              src="/12.png"
+              alt="Ảnh minh họa quy trình"
+              className="lex h-full min-h-[400px] w-full items-center justify-center rounded-lg bg-gray-200"
+              width={400}
+              height={400}
+            />
           </div>
         </div>
       </div>
