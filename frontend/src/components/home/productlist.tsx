@@ -1,53 +1,22 @@
 "use client";
 
-// GHI CHÚ QUAN TRỌNG:
-// Các thành phần <Link> và <Image> của Next.js đã được thay thế bằng <a> và <img>
-// để khắc phục lỗi biên dịch trong môi trường xem trước (preview) này.
-//
-// TRONG DỰ ÁN NEXT.JS THỰC TẾ CỦA BẠN, BẠN NÊN SỬ DỤNG PHIÊN BẢN GỐC VỚI:
-// import Link from "next/link";
-// import Image from "next/image";
-// ...để đảm bảo hiệu suất (prefetching) và tối ưu hóa hình ảnh.
-
-import { ArrowRight } from "lucide-react"; // Icon mũi tên cho đẹp
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-// Dữ liệu cho các danh mục
-const categories = [
-  {
-    title: "TEM NHÃN",
-    href: "/sanpham/1",
-    imageUrl:
-      "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
-    alt: "Hình ảnh danh mục Tem Nhãn",
-  },
-  {
-    title: "HỘP GIẤY",
-    href: "/sanpham/2",
-    imageUrl:
-      "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
-    alt: "Hình ảnh danh mục Hộp Giấy",
-  },
-  {
-    title: "CATALOGUE",
-    href: "/sanpham/3",
-    imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
-    alt: "Hình ảnh danh mục Catalogue",
-  },
-  {
-    title: "BROCHURE/TỜ RƠI",
-    href: "/sanpham/4",
-    imageUrl:
-      "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
-    alt: "Hình ảnh danh mục Brochure/Tờ Rơi",
-  },
-];
+import { allCategories } from "@/data/products";
+
+// Chỉ hiển thị 4 danh mục trên trang chủ
+const featuredCategoryIds = [1, 2, 3, 4];
 
 const ProductCategories = () => {
+  const featured = allCategories.filter((c) =>
+    featuredCategoryIds.includes(c.id)
+  );
+
   return (
     <section className="w-full bg-white py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
-        {/* Phần tiêu đề và nút xem tất cả */}
+        {/* Tiêu đề + Xem tất cả */}
         <div className="mb-10 flex items-center justify-between">
           <h2 className="text-3xl font-semibold text-gray-800 md:text-4xl">
             DANH MỤC SẢN PHẨM
@@ -60,39 +29,26 @@ const ProductCategories = () => {
           </Link>
         </div>
 
-        {/* Lưới danh mục sản phẩm */}
+        {/* Lưới 4 danh mục nổi bật */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
+          {featured.map((category) => (
             <Link
-              key={category.title}
-              href={category.href}
-              className="group relative block overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl"
+              key={category.id}
+              href={`/sanpham?category=${category.id}`}
+              className="group relative block overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl"
             >
-              {/* Hình ảnh */}
               <div className="relative h-60 w-full overflow-hidden">
-                {/* Đã thay thế Next/Image bằng <img> tiêu chuẩn.
-                  Props `layout="fill"` và `objectFit="cover"` được chuyển thành inline style.
-                */}
                 <Image
                   src={category.imageUrl}
-                  alt={category.alt}
+                  alt={category.title}
                   fill
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                  className="transition-transform duration-500 group-hover:scale-110"
+                  sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                {/* Lớp phủ mờ dần từ dưới lên để chữ rõ hơn */}
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/60 via-black/30 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
               </div>
 
-              {/* Tên danh mục */}
-              <div className="absolute bottom-4 left-4 flex items-center space-x-2">
+              <div className="absolute bottom-4 left-4 flex items-center gap-2">
                 <h3 className="text-lg font-semibold text-white">
                   {category.title}
                 </h3>
