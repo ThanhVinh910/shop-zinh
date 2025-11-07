@@ -1,101 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Dữ liệu sản phẩm mẫu
-const mockProducts = [
-  {
-    id: 1,
-    name: "In Lịch Tết 2025",
-    category: "Lịch",
-    imageUrl:
-      "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
-  },
-  {
-    id: 2,
-    name: "In Namecard Giá Rẻ",
-    category: "Namecard",
-    imageUrl:
-      "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
-  },
-  {
-    id: 3,
-    name: "In Nhanh Namecard",
-    category: "Namecard",
-    imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
-  },
-  {
-    id: 4,
-    name: "In Namecard Lấy Liền",
-    category: "Namecard",
-    imageUrl:
-      "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
-  },
-  {
-    id: 5,
-    name: "In Nhanh Hộp Giấy",
-    category: "Hộp Giấy",
-    imageUrl:
-      "https://himpaper.vn/data/category/THI%E1%BB%86P%20C%C6%AF%E1%BB%9AI/z5308691804078_bc5affe8ec1f227ae538e4f6bebe09fd.jpg",
-  },
-  {
-    id: 6,
-    name: "In Hộp Mỹ Phẩm",
-    category: "Hộp Giấy",
-    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
-  },
-  {
-    id: 7,
-    name: "In Hộp Giá Rẻ",
-    category: "Hộp Giấy",
-    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
-  },
-  {
-    id: 8,
-    name: "In Danh Thiếp",
-    category: "Namecard",
-    imageUrl: "https://himpaper.vn/data/category/VOUCHER/voucher.jpg",
-  },
-  {
-    id: 9,
-    name: "In Hộp Giấy Theo Yêu Cầu",
-    category: "Hộp Giấy",
-    imageUrl:
-      "https://himpaper.vn/data/category/L%E1%BB%8ACH/z5768411133518_2579b804cff0c36e86f931c2b53cf14f.jpg",
-  },
-  {
-    id: 10,
-    name: "In Menu Giá Rẻ",
-    category: "Menu",
-    imageUrl:
-      "https://himpaper.vn/data/category/S%E1%BB%94%20TAY/notebook_mockup_05-01.jpg.png",
-  },
-  {
-    id: 11,
-    name: "In Giấy Tiêu Đề",
-    category: "Ấn Phẩm Văn Phòng",
-    imageUrl:
-      "https://himpaper.vn/data/category/MENU/z5308594956544_8e60f3f33b198b82e94792e1e5a17022.jpg",
-  },
-  {
-    id: 12,
-    name: "In Nhãn Nhựa",
-    category: "Tem Nhãn",
-    imageUrl:
-      "https://himpaper.vn/data/category/TAG-TH%E1%BA%BA%20TREO/z5308604775186_2244df5425b9b86e51150223e86f1ad8-01.jpg.png",
-  },
-];
+// 🔑 BƯỚC 1: IMPORT DỮ LIỆU TỪ FILE CHUNG
+import { mockProducts, allCategories } from "@/data/products"; // (Hoặc dùng ../../data/data)
 
-// 🔑 generateStaticParams để Next.js build sẵn các trang chi tiết
+// 🔑 BƯỚC 2: generateStaticParams dùng SẢN PHẨM (mockProducts)
 export async function generateStaticParams() {
   return mockProducts.map((p) => ({ id: String(p.id) }));
 }
 
-// ✅ params là object, không phải Promise
+// 🔑 BƯỚC 3: Trang chi tiết SẢN PHẨM
 export default function ProductDetailPage({
   params,
 }: {
   params: { id: string };
 }) {
+  // Tìm SẢN PHẨM trong mảng SẢN PHẨM
   const product = mockProducts.find((p) => String(p.id) === params.id);
 
   if (!product) {
@@ -110,6 +30,9 @@ export default function ProductDetailPage({
       </div>
     );
   }
+
+  // (Tùy chọn) Tìm tên danh mục từ categoryId
+  const category = allCategories.find((c) => c.id === product.categoryId);
 
   return (
     <div className="container mx-auto max-w-5xl px-4 py-12">
@@ -127,18 +50,44 @@ export default function ProductDetailPage({
       </nav>
 
       {/* Nội dung chi tiết */}
-      <h1 className="text-3xl font-bold mb-6">{product.name}</h1>
-      <p className="mb-4 text-gray-700">Danh mục: {product.category}</p>
-      <Image
-        src={product.imageUrl}
-        alt={product.name}
-        width={600}
-        height={400}
-        className="rounded-lg shadow-md mb-6"
-      />
-      <p className="text-gray-700">
-        Mô tả chi tiết cho sản phẩm <b>{product.name}</b>.
-      </p>
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* Cột hình ảnh */}
+        <div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-lg shadow-md">
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+
+        {/* Cột thông tin */}
+        <div>
+          <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
+          <p className="mb-4 text-lg text-gray-700">
+            <span className="font-semibold">Danh mục: </span>
+            <Link
+              href={`/sanpham?category=${category?.id || 0}`} // (Tùy chọn: Link về trang lọc)
+              className="text-orange-500 hover:underline"
+            >
+              {category ? category.title : "Không rõ"}
+            </Link>
+          </p>
+          <p className="text-gray-700 leading-relaxed">{product.description}</p>
+
+          {/* (Bạn có thể thêm nút "Liên hệ" hoặc "Báo giá" ở đây) */}
+          <div className="mt-8">
+            <Link
+              href="/lienhe"
+              className="inline-block rounded-md bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow-sm hover:bg-orange-600 transition-colors"
+            >
+              Yêu Cầu Báo Giá
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

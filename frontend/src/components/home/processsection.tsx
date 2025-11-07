@@ -16,11 +16,9 @@ const ProcessSection = () => {
   return (
     <section className="w-full bg-(--color-brand-light) py-16 md:py-24">
       <div className="container mx-auto max-w-7xl px-4">
-        Tiêu đề Section
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-800">QUY TRÌNH IN ẤN</h2>
         </div>
-        Lưới 2 Cột
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
           {/* Cột 1: Các bước */}
           <div className="flex flex-col space-y-4">

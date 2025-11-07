@@ -3,120 +3,47 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+// 🔑 BƯỚC 1: IMPORT DỮ LIỆU TỪ FILE CHUNG
+import { mockProducts, allCategories } from "@/data/products"; // (Giả sử bạn có alias `@/*` trỏ đến `src/*`)
+// Nếu không, hãy dùng: import { mockProducts, allCategories } from "../../data/data";
 
-const mockProducts = [
-  {
-    id: 1,
-    name: "In Lịch Tết 2025",
-    category: "Lịch",
-    imageUrl:
-      "https://himpaper.vn/data/category/TEM%20NH%C3%83N/z5308504211360_0f4899222ad8a5ae74369182a8440451-01.jpg",
-  },
-  {
-    id: 2,
-    name: "In Namecard Giá Rẻ",
-    category: "Namecard",
-    imageUrl:
-      "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
-  },
-  {
-    id: 3,
-    name: "In Nhanh Namecard",
-    category: "Namecard",
-    imageUrl: "https://himpaper.vn/data/category/CATALOUGE/11610238.png",
-  },
-  {
-    id: 4,
-    name: "In Namecard Lấy Liền",
-    category: "Namecard",
-    imageUrl:
-      "https://himpaper.vn/data/category/BROCHURE%20-%20T%E1%BB%9C%20R%C6%A0I/BROCHURE1-01.jpg",
-  },
-  {
-    id: 5,
-    name: "In Nhanh Hộp Giấy",
-    category: "Hộp Giấy",
-    imageUrl:
-      "https://himpaper.vn/data/category/THI%E1%BB%86P%20C%C6%AF%E1%BB%9AI/z5308691804078_bc5affe8ec1f227ae538e4f6bebe09fd.jpg",
-  },
-  {
-    id: 6,
-    name: "In Hộp Mỹ Phẩm",
-    category: "Hộp Giấy",
-    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
-  },
-  {
-    id: 7,
-    name: "In Hộp Giá Rẻ",
-    category: "Hộp Giấy",
-    imageUrl: "https://himpaper.vn/data/category/NAMECARD/KK-01-01.jpg",
-  },
-  {
-    id: 8,
-    name: "In Danh Thiếp",
-    category: "Namecard",
-    imageUrl: "https://himpaper.vn/data/category/VOUCHER/voucher.jpg",
-  },
-  {
-    id: 9,
-    name: "In Hộp Giấy Theo Yêu Cầu",
-    category: "Hộp Giấy",
-    imageUrl:
-      "https://himpaper.vn/data/category/L%E1%BB%8ACH/z5768411133518_2579b804cff0c36e86f931c2b53cf14f.jpg",
-  },
-  {
-    id: 10,
-    name: "In Menu Giá Rẻ",
-    category: "Menu",
-    imageUrl:
-      "https://himpaper.vn/data/category/S%E1%BB%94%20TAY/notebook_mockup_05-01.jpg.png",
-  },
-  {
-    id: 11,
-    name: "In Giấy Tiêu Đề",
-    category: "Ấn Phẩm Văn Phòng",
-    imageUrl:
-      "https://himpaper.vn/data/category/MENU/z5308594956544_8e60f3f33b198b82e94792e1e5a17022.jpg",
-  },
-  {
-    id: 12,
-    name: "In Nhãn Nhựa",
-    category: "Tem Nhãn",
-    imageUrl:
-      "https://himpaper.vn/data/category/TAG-TH%E1%BA%BA%20TREO/z5308604775186_2244df5425b9b86e51150223e86f1ad8-01.jpg.png",
-  },
-];
-
-const productCategories = [
-  "Tất cả",
-  "Tem Nhãn",
-  "Hộp Giấy",
-  "Catalogue",
-  "Brochure-Tờ Rơi",
-  "Thiệp Cưới",
-  "Namecard",
-  "Voucher",
-  "Bao Lì Xì",
-  "Lịch",
-  "Sổ Tay",
-  "Menu",
-  "Tag Thẻ Treo",
-  "Thẻ Nhựa Cào",
-  "Ấn Phẩm Văn Phòng",
-  "Túi Giấy",
-];
+const ITEMS_PER_PAGE = 9; // 🔑 Tăng số sản phẩm mỗi trang
 
 export default function SanphamPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("Tất cả");
+  // 🔑 BƯỚC 2: Dùng `0` (số) làm ID cho "Tất cả"
+  const [activeCategoryId, setActiveCategoryId] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // 🔑 BƯỚC 3: Cập nhật logic lọc (dùng categoryId thay vì string)
   const filtered = mockProducts.filter((p) =>
-    activeCategory === "Tất cả" ? true : p.category === activeCategory
+    activeCategoryId === 0 ? true : p.categoryId === activeCategoryId
   );
+
+  // Logic phân trang (không đổi)
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentProducts = filtered.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
+
+  // 🔑 BƯỚC 4: Cập nhật hàm (dùng `number` cho categoryId)
+  const handleCategoryChange = (categoryId: number) => {
+    setActiveCategoryId(categoryId);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+  };
+
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
+        {/* Breadcrumb (không đổi) */}
         <nav className="text-sm text-gray-600 mb-6">
           <Link href="/" className="hover:text-orange-500">
             Trang chủ
@@ -128,25 +55,39 @@ export default function SanphamPage() {
         </nav>
 
         <div className="lg:grid lg:grid-cols-4 lg:gap-x-8">
-          {/* Sidebar categories */}
+          {/* 🔑 BƯỚC 5: Cập nhật Sidebar */}
           <aside className="lg:col-span-1">
             <h2 className="text-xl font-bold tracking-tight text-gray-900 mb-6 border-b pb-2">
               DANH MỤC
             </h2>
             <ul className="space-y-2">
-              {productCategories.map((category) => {
-                const isActive = category === activeCategory;
+              {/* Nút "Tất cả" */}
+              <li>
+                <button
+                  onClick={() => handleCategoryChange(0)}
+                  className={`w-full text-left block py-1 ${
+                    activeCategoryId === 0
+                      ? "font-semibold text-orange-500"
+                      : "text-gray-700 hover:text-orange-500"
+                  }`}
+                >
+                  Tất cả
+                </button>
+              </li>
+              {/* Render danh mục từ `allCategories` */}
+              {allCategories.map((category) => {
+                const isActive = category.id === activeCategoryId;
                 return (
-                  <li key={category}>
+                  <li key={category.id}>
                     <button
-                      onClick={() => setActiveCategory(category)}
+                      onClick={() => handleCategoryChange(category.id)}
                       className={`w-full text-left block py-1 ${
                         isActive
                           ? "font-semibold text-orange-500"
                           : "text-gray-700 hover:text-orange-500"
                       }`}
                     >
-                      {category}
+                      {category.title}
                     </button>
                   </li>
                 );
@@ -154,41 +95,79 @@ export default function SanphamPage() {
             </ul>
           </aside>
 
-          {/* Products grid */}
+          {/* 🔑 BƯỚC 6: Grid sản phẩm (hiển thị SẢN PHẨM THẬT) */}
           <section className="lg:col-span-3 mt-8 lg:mt-0">
             <h1 className="text-3xl font-bold tracking-tight text-gray-900 mb-6">
               Sản Phẩm
             </h1>
 
-            {filtered.length === 0 ? (
+            {currentProducts.length === 0 ? (
               <p className="text-gray-500">
                 Không có sản phẩm cho danh mục này.
               </p>
             ) : (
-              <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                {filtered.map((product) => (
-                  <Link
-                    key={product.id}
-                    href={`/sanpham/${product.id}`} // 🔑 chữ thường, khớp với route chi tiết
-                    className="group"
-                  >
-                    <div className="overflow-hidden rounded-lg bg-gray-200">
-                      <div className="aspect-square w-full">
-                        <Image
-                          src={product.imageUrl}
-                          alt={product.name}
-                          width={400}
-                          height={400}
-                          className="h-full w-full object-cover object-center group-hover:opacity-75"
-                        />
+              <>
+                <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                  {/* Map qua `currentProducts` (danh sách sản phẩm thật) */}
+                  {currentProducts.map((product) => (
+                    <Link
+                      key={product.id}
+                      href={`/sanpham/${product.id}`} // Link đến trang chi tiết SẢN PHẨM
+                      className="group"
+                    >
+                      <div className="overflow-hidden rounded-lg bg-gray-200 aspect-square">
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={product.imageUrl}
+                            alt={product.name}
+                            fill
+                            className="h-full w-full object-cover object-center group-hover:opacity-75"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <h3 className="mt-4 text-sm font-medium text-gray-800">
-                      {product.name}
-                    </h3>
-                  </Link>
-                ))}
-              </div>
+                      <h3 className="mt-4 text-sm font-medium text-gray-800">
+                        {product.name}
+                      </h3>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Phân trang (Không đổi) */}
+                {totalPages > 1 && (
+                  <nav
+                    className="flex justify-center items-center space-x-1 mt-12"
+                    aria-label="Pagination"
+                  >
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-300`}
+                    >
+                      &lt;
+                    </button>
+                    {pageNumbers.map((pageNumber) => (
+                      <button
+                        key={pageNumber}
+                        onClick={() => handlePageChange(pageNumber)}
+                        className={`relative inline-flex items-center rounded-md border px-4 py-2 text-sm font-medium ${
+                          pageNumber === currentPage
+                            ? "border-blue-500 bg-blue-500 text-white"
+                            : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                        }`}
+                      >
+                        {pageNumber}
+                      </button>
+                    ))}
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-300`}
+                    >
+                      &gt;
+                    </button>
+                  </nav>
+                )}
+              </>
             )}
           </section>
         </div>
