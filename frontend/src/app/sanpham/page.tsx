@@ -184,7 +184,7 @@ export default function SanphamPage() {
           aria-label="Chat Zalo 0834016499"
           className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow transition hover:scale-105"
         >
-          Z
+          Zalo
         </a>
         <a
           href="/lienhe"

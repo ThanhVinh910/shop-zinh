@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import React from "react";
 
 type FormState = {
   name: string;
@@ -456,7 +457,7 @@ export default function ContactPage() {
           rel="noreferrer"
           className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow"
         >
-          Z
+          Zalo
         </a>
         <a
           href="#"
