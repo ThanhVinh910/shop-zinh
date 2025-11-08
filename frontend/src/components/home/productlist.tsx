@@ -32,9 +32,10 @@ const ProductCategories = () => {
         {/* Lưới 4 danh mục nổi bật */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featured.map((category) => (
+            // NOTE: dùng slug cho đường dẫn đẹp: /sanpham/tem-nhan
             <Link
               key={category.id}
-              href={`/sanpham?category=${category.id}`}
+              href={`/sanpham/category/${category.slug}`}
               className="group relative block overflow-hidden rounded-xl shadow-md transition-all duration-300 hover:shadow-xl"
             >
               <div className="relative h-60 w-full overflow-hidden">
@@ -45,7 +46,8 @@ const ProductCategories = () => {
                   sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-linear-to-t from-black/60 via-black/30 to-transparent" />
+                {/* gradient overlay */}
+                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
               </div>
 
               <div className="absolute bottom-4 left-4 flex items-center gap-2">

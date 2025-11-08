@@ -1,9 +1,14 @@
+// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // ⚡ Giúp tạo thư mục 'out' để Netlify có thể deploy
+  output: "export", // ⚡ Dùng khi deploy Netlify (tạo thư mục 'out')
   images: {
-    unoptimized: true, // ⚡ Bắt buộc khi dùng output: 'export'
+    // ⚠️ Bắt buộc khi dùng output: 'export'
+    unoptimized: true,
+
+    // ✅ Cho phép hiển thị ảnh từ domain bên ngoài
+    domains: ["himpaper.vn", "inkzinh.netlify.app"],
   },
 };
 
