@@ -375,14 +375,5 @@ export const mockProducts = [
       "https://himpaper.vn/data/category/H%E1%BB%98P%20GI%E1%BA%A4Y/M010T150_Cosmatic_Container_1-01-01.jpg",
     description: "Túi giấy sang trọng bồi carton, ép kim logo.",
   },
-
-    {
-    id: 1503,
-    name: "Zinh",
-    categoryId: 16,
-    imageUrl:
-      "https://scontent.fsgn15-1.fna.fbcdn.net/v/t39.30808-6/569584544_122126498192966843_1258147077033456594_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Nlef-r0y9JQQ7kNvwGUN9v6&_nc_oc=AdmRibhIFluMTTkrwkbIvqZOORbdB_GT3wr1JYUMjQhztKgr66zsNyXQi_19cz_17b8FhlcrOCq6bzQhyHGOhFDa&_nc_zt=23&_nc_ht=scontent.fsgn15-1.fna&_nc_gid=mRg5yPGrp80LzUOmZehDqQ&oh=00_AfhATTNg3j2yQtAmzua1VepQuIirgM6QNe4cb1p9ezly-g&oe=69150A26",
-    description: "Anh Zinh đẹp trai đây nò :))",
-  },
 ];
 
