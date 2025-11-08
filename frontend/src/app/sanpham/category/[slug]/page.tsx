@@ -78,7 +78,7 @@ export default async function CategoryPage({ params }: Props) {
           </div>
 
           <div className="md:col-span-6 flex flex-col justify-center">
-            <h1 className="text-3xl font-serif tracking-wider mb-4">
+            <h1 className="text-3xl font-serif tracking-wider mb-4 text-gray-800">
               {category.title}
             </h1>
             <p className="text-gray-700 leading-relaxed">
@@ -89,7 +89,9 @@ export default async function CategoryPage({ params }: Props) {
 
         <section className="bg-white p-6 rounded-lg shadow-sm">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-serif">SẢN PHẨM {category.title}</h2>
+            <h2 className="text-xl font-serif text-gray-800">
+              SẢN PHẨM {category.title}
+            </h2>
             <Link
               href="/sanpham"
               className="rounded-md bg-orange-600 px-4 py-2 text-sm font-medium text-white"
