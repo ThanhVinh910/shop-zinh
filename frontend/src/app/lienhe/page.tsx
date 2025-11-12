@@ -1,3 +1,5 @@
+// đây là file src/app/lienhe/page.tsx
+
 "use client";
 
 import { useEffect, useMemo, useState } from "react";

@@ -1,4 +1,4 @@
-// src/app/api/contact/route.ts
+// đây là  file src/app/api/contact/route.ts
 export const runtime = "edge"; // chạy nhẹ, tương thích Bun / Edge runtimes
 
 import { NextResponse } from "next/server";
