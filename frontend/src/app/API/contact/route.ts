@@ -1,5 +1,7 @@
-// đây là  file src/app/api/contact/route.ts
-export const runtime = "edge"; // chạy nhẹ, tương thích Bun / Edge runtimes
+// src/app/api/contact/route.ts
+// Temporary debug: comment out edge runtime to improve Netlify compatibility.
+// Re-enable if you need edge runtime later.
+// export const runtime = "edge";
 
 import { NextResponse } from "next/server";
 
@@ -66,13 +68,7 @@ function buildHtml(form: FormState) {
   `;
 }
 
-/**
- * Send via SendGrid REST API using fetch (works in Bun / Edge / Node).
- * Required env:
- *  - SENDGRID_API_KEY
- *  - SENDGRID_FROM_EMAIL   (verified sender)
- *  - CONTACT_TO_EMAIL      (your inbox)
- */
+/** Send with SendGrid (same as yours) */
 async function sendWithSendGrid(form: FormState) {
   const apiKey = process.env.SENDGRID_API_KEY;
   const from = process.env.SENDGRID_FROM_EMAIL;
@@ -115,10 +111,15 @@ function isPlainObject(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
 }
 
-/** Basic IP rate-limiting in-memory (works for dev; for production dùng redis) */
+/** Basic in-memory rate limiting (dev only) */
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 8;
 const ipMap = new Map<string, { count: number; firstTs: number }>();
+
+/** DEBUG: add GET so we can verify the route exists on production */
+export function GET() {
+  return NextResponse.json({ ok: true, message: "contact route present" });
+}
 
 export async function POST(req: Request) {
   try {
