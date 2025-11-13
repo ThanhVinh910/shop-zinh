@@ -5,7 +5,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import React from "react";
-
+import Image from "next/image";
 type FormState = {
   name: string;
   email: string;
@@ -442,28 +442,43 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Floating quick buttons */}
+      {/* ✅ Floating quick buttons */}
       <div
-        aria-hidden
-        className="fixed right-4 bottom-8 z-50 flex flex-col gap-4"
+        aria-hidden="true"
+        className="fixed bottom-8 right-4 z-50 flex flex-col gap-4"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
+        {/* Gọi điện */}
         <a
           href="tel:0834016499"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow"
+          aria-label="Gọi 0834016499"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow transition hover:scale-105"
         >
           📞
         </a>
+
+        {/* Zalo — icon đúng như hình */}
         <a
           href="https://zalo.me/0834016499"
           target="_blank"
-          rel="noreferrer"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow"
+          rel="noreferrer noopener"
+          aria-label="Chat Zalo 0834016499"
+          className="flex h-12 w-12 items-center justify-center rounded-full shadow transition hover:scale-105 bg-white"
         >
-          Zalo
+          <Image
+            src="/zalo-crop.png"
+            alt="Zalo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
         </a>
+
+        {/* Chat nội bộ */}
         <a
-          href="#"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-green-600 text-white shadow"
+          href="/lienhe"
+          aria-label="Mở chat"
+          className="flex h-12 w-12 items-center justify-center rounded-full bg-green-600 text-white shadow transition hover:scale-105"
         >
           💬
         </a>

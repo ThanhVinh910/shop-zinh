@@ -163,13 +163,13 @@ export default function SanphamPage() {
         </div>
       </div>
 
-      {/* ✅ Floating quick buttons – đặt NGAY TRƯỚC khi đóng div.bg-white */}
+      {/* ✅ Floating quick buttons */}
       <div
         aria-hidden="true"
         className="fixed bottom-8 right-4 z-50 flex flex-col gap-4"
-        // nếu muốn tránh cụm nút đè lên footer trên iPhone có tai thỏ:
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
+        {/* Gọi điện */}
         <a
           href="tel:0834016499"
           aria-label="Gọi 0834016499"
@@ -177,15 +177,25 @@ export default function SanphamPage() {
         >
           📞
         </a>
+
+        {/* Zalo — icon đúng như hình */}
         <a
           href="https://zalo.me/0834016499"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="Chat Zalo 0834016499"
-          className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500 text-white shadow transition hover:scale-105"
+          className="flex h-12 w-12 items-center justify-center rounded-full shadow transition hover:scale-105 bg-white"
         >
-          Zalo
+          <Image
+            src="/zalo-crop.png"
+            alt="Zalo"
+            width={40}
+            height={40}
+            className="object-contain"
+          />
         </a>
+
+        {/* Chat nội bộ */}
         <a
           href="/lienhe"
           aria-label="Mở chat"
